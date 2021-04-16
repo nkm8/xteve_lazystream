@@ -12,4 +12,4 @@ services:
       - /var/data/xteve/guide2go/:/guide2go:rw
       - /var/data/xteve/playlists/:/playlists:rw
       - /tmp/xteve/:/tmp/xteve:rw
-    env_file: .env
+    env_file: sample.env
