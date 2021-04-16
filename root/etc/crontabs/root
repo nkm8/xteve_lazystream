@@ -1,1 +1,1 @@
-0  *  *  *  *  /cronjob.sh
+*/15 * * * * /cronjob.sh

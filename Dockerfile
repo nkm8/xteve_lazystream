@@ -1,9 +1,9 @@
-FROM alpine:latest
+FROM arm64v8/alpine:latest
 
 LABEL maintainer="taylorbourne taylorbourne@me.com.com"
 
 # Install S6 overlay
-ARG S6_OVERLAY_RELEASE=https://github.com/just-containers/s6-overlay/releases/latest/download/s6-overlay-amd64.tar.gz
+ARG S6_OVERLAY_RELEASE=https://github.com/just-containers/s6-overlay/releases/latest/download/s6-overlay-aarch64.tar.gz
 ENV S6_OVERLAY_RELEASE=${S6_OVERLAY_RELEASE}
 
 ADD ${S6_OVERLAY_RELEASE} /tmp/s6overlay.tar.gz
@@ -29,10 +29,10 @@ ENV TZ=America/Los_Angeles
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Add xTeve and guide2go
-RUN wget https://github.com/xteve-project/xTeVe-Downloads/raw/master/xteve_linux_amd64.zip -O temp.zip; unzip temp.zip -d /usr/bin/; rm temp.zip
+RUN wget https://github.com/xteve-project/xTeVe-Downloads/raw/master/xteve_linux_arm64.zip -O temp.zip; unzip temp.zip -d /usr/bin/; rm temp.zip
 
 # Add lazystream
-RUN wget https://github.com/tarkah/lazystream/releases/download/v1.11.4/lazystream-v1.11.4-x86_64-unknown-linux-musl.tar.gz -O lazystream.tar.gz; \
+RUN wget https://github.com/tarkah/lazystream/releases/download/v1.11.4/lazystream-v1.11.4-aarch64-unknown-linux-gnu.tar.gz -O lazystream.tar.gz; \
     tar xzf lazystream.tar.gz; \
     mv ././lazystream /usr/bin/lazystream; \
     rm lazystream.tar.gz; \
