@@ -2,7 +2,7 @@ version: "2.4"
 
 services:
   xteve_lazystream:
-    image: nkm8/xteve_lazystream_pi:v1.5
+    image: nkm8/xteve_lazystream_pi:v1.6
     restart: unless-stopped
     ports:
       - "34400:34400"
