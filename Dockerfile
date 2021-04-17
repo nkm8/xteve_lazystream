@@ -23,6 +23,16 @@ RUN apk upgrade --update --no-cache \
             ffmpeg \
             vlc \
             gnutls-utils
+
+# pi4 library to run lazystream: https://github.com/ljfranklin/alpine-pkg-glibc/releases/tag/2.32-r0-arm64
+RUN wget https://github.com/ljfranklin/alpine-pkg-glibc/releases/download/2.32-r0-arm64/glibc-2.32-r0.apk
+RUN apk add --allow-untrusted glibc-2.32-r0.apk
+
+RUN wget https://github.com/ljfranklin/alpine-pkg-glibc/releases/download/2.32-r0-arm64/glibc-bin-2.32-r0.apk
+RUN apk add --allow-untrusted glibc-bin-2.32-r0.apk
+
+RUN wget https://github.com/ljfranklin/alpine-pkg-glibc/releases/download/2.32-r0-arm64/glibc-i18n-2.32-r0.apk
+RUN apk add --allow-untrusted glibc-i18n-2.32-r0.apk
                        
 # Update Timezone
 ENV TZ=America/Los_Angeles
